@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internee.pk Phishing Awareness & GoPhish Telemetry</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+    .box { max-width: 950px; margin: auto; background: #1e293b; padding: 24px; border-radius: 10px; border: 1px solid #334155; }
+    h1 { margin-top: 0; color: #38bdf8; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 20px 0; }
+    .card { background: #0f172a; padding: 14px; border-radius: 8px; border: 1px solid #334155; }
+    .num { font-size: 24px; font-weight: bold; color: #38bdf8; margin-top: 6px; }
+    .ok { color: #4ade80; }
+    .warn { color: #f87171; }
+    button { background: #0284c7; color: #fff; border: none; padding: 10px 14px; border-radius: 6px; cursor: pointer; margin-right: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border-bottom: 1px solid #334155; padding: 10px; text-align: left; font-size: 14px; }
+    th { color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Phishing Awareness Simulation & GoPhish Console</h1>
+    <p>Internee.pk Cybersecurity Internship Lab • Training Lures, Interaction Analysis & Staff Awareness by Ali Zain Hamed</p>
+
+    <div class="grid">
+      <div class="card"><div>Targets</div><div class="num" id="tot">5</div></div>
+      <div class="card"><div>Clicked</div><div class="num warn" id="clk">2</div></div>
+      <div class="card"><div>Submitted</div><div class="num warn" id="sub">1</div></div>
+      <div class="card"><div>Reported</div><div class="num ok" id="rep">2</div></div>
+    </div>
+
+    <button onclick="addEvent('intern_06@example.test', 'TPL-01', 'REPORTED', 'rep')">+ Simulate Reported Phish</button>
+    <button onclick="addEvent('intern_07@example.test', 'TPL-02', 'CLICKED', 'clk')">+ Simulate Clicked Lure</button>
+
+    <table>
+      <thead>
+        <tr><th>Recipient</th><th>Template</th><th>Outcome</th></tr>
+      </thead>
+      <tbody id="tbody">
+        <tr><td>intern_01@example.test</td><td>TPL-01 (Portal Alert)</td><td class="ok">REPORTED</td></tr>
+        <tr><td>intern_02@example.test</td><td>TPL-01 (Portal Alert)</td><td class="warn">CLICKED</td></tr>
+        <tr><td>intern_03@example.test</td><td>TPL-02 (Stipend Lure)</td><td class="warn">SUBMITTED</td></tr>
+        <tr><td>staff_04@example.test</td><td>TPL-02 (Stipend Lure)</td><td class="ok">REPORTED</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function addEvent(user, tpl, outcome, idKey) {
+      var tb = document.getElementById("tbody");
+      var tr = document.createElement("tr");
+      var cls = idKey === "rep" ? "ok" : "warn";
+      tr.innerHTML = "<td>" + user + "</td><td>" + tpl + "</td><td class='" + cls + "'>" + outcome + "</td>";
+      tb.insertBefore(tr, tb.firstChild);
+
+      var tot = document.getElementById("tot");
+      tot.textContent = parseInt(tot.textContent, 10) + 1;
+      var el = document.getElementById(idKey);
+      el.textContent = parseInt(el.textContent, 10) + 1;
+    }
+  </script>
+</body>
+</html>

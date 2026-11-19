@@ -1,0 +1,27 @@
+{
+  "campaign_name": "Internee.pk Q4 Security Awareness Drill",
+  "platform": "GoPhish (Simulated Training Lab)",
+  "landing_page": "https://training.internee.pk/sso-awareness-check",
+  "templates": [
+    {
+      "id": "TPL-01",
+      "subject": "Action Required: Verify Your Internship Portal Session",
+      "lure_type": "Urgent Credential / Session Alert",
+      "red_flags": [
+        "Urgent deadline pressure",
+        "Lookalike training domain",
+        "Unexpected login prompt"
+      ]
+    },
+    {
+      "id": "TPL-02",
+      "subject": "Updated Stipend & Certificate Guidelines - Review",
+      "lure_type": "Reward / Policy Attachment Lure",
+      "red_flags": [
+        "Generic greeting",
+        "External link instead of official dashboard",
+        "Unverified sender alias"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+Internee.pk Phishing Awareness & GoPhish Simulation Task - Summary
+Total Simulated Recipients: 5
+Opened: 4 | Clicked: 2 (40.0%) | Submitted Credentials: 1 | Reported: 2 (40.0%)
+Training Recommendations: Enforce phishing red-flag micro-training for clicked/submitted users, promote one-click phishing reporting, and require MFA/passkeys on portals.
